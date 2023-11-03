@@ -6,4 +6,4 @@ Sebastian Nevarez
 
 ## Projects  
 Project 1: FIR  
-Project 2: CORDIC  
+Project 2: CORDIC and Phase Detector  
