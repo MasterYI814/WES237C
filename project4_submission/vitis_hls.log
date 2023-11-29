@@ -1,0 +1,671 @@
+INFO: [HLS 200-10] Running 'D:/Xilinx/Vitis_HLS/2022.2/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user 'User' on host 'yi-song-pc' (Windows NT_amd64 version 6.2) on Tue Nov 28 19:04:29 -0800 2023
+INFO: [HLS 200-10] In directory 'D:/Coursework/UCSD_WES/Hardware_for_Embed_Sys/project4/FFT/HLS/2_Skeleton_Restructured'
+Sourcing Tcl script 'D:/Coursework/UCSD_WES/Hardware_for_Embed_Sys/project4/FFT/HLS/2_Skeleton_Restructured/hls_restructured/pipeline/csynth.tcl'
+INFO: [HLS 200-1510] Running: source D:/Coursework/UCSD_WES/Hardware_for_Embed_Sys/project4/FFT/HLS/2_Skeleton_Restructured/hls_restructured/pipeline/csynth.tcl
+INFO: [HLS 200-1510] Running: open_project hls_restructured 
+INFO: [HLS 200-10] Opening project 'D:/Coursework/UCSD_WES/Hardware_for_Embed_Sys/project4/FFT/HLS/2_Skeleton_Restructured/hls_restructured'.
+INFO: [HLS 200-1510] Running: set_top fft 
+INFO: [HLS 200-1510] Running: add_files fft.h 
+INFO: [HLS 200-10] Adding design file 'fft.h' to the project
+INFO: [HLS 200-1510] Running: add_files fft.cpp 
+INFO: [HLS 200-10] Adding design file 'fft.cpp' to the project
+INFO: [HLS 200-1510] Running: add_files -tb out.gold.dat -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'out.gold.dat' to the project
+INFO: [HLS 200-1510] Running: add_files -tb fft_test.cpp -cflags -Wno-unknown-pragmas -csimflags -Wno-unknown-pragmas 
+INFO: [HLS 200-10] Adding test bench file 'fft_test.cpp' to the project
+INFO: [HLS 200-1510] Running: open_solution pipeline -flow_target vivado 
+INFO: [HLS 200-10] Opening solution 'D:/Coursework/UCSD_WES/Hardware_for_Embed_Sys/project4/FFT/HLS/2_Skeleton_Restructured/hls_restructured/pipeline'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1611] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-1505.html
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xc7z020-clg400-1 
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_latency 0 
+INFO: [HLS 200-1510] Running: csynth_design 
+Running Dispatch Server on port: 56962
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 10.129 seconds; current allocated memory: 90.555 MB.
+INFO: [HLS 200-10] Analyzing design file 'fft.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.982 seconds; current allocated memory: 91.387 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-291] Loop 'DFTpts' is marked as complete unroll implied by the pipeline pragma (fft.cpp:261:3)
+INFO: [HLS 214-291] Loop 'DFTpts' is marked as complete unroll implied by the pipeline pragma (fft.cpp:202:3)
+INFO: [HLS 214-291] Loop 'DFTpts' is marked as complete unroll implied by the pipeline pragma (fft.cpp:140:3)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_52_1' is marked as complete unroll implied by the pipeline pragma (fft.cpp:52:19)
+INFO: [HLS 214-186] Unrolling loop 'DFTpts' (fft.cpp:261:3) in function 'fft_stage_last' completely with a factor of 1 (fft.cpp:223:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'DFTpts' (fft.cpp:261:3) in function 'fft_stage_last' has been removed because the loop is unrolled completely (fft.cpp:223:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_52_1' (fft.cpp:52:19) in function 'reverse_bits' completely with a factor of 10 (fft.cpp:49:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'VITIS_LOOP_52_1' (fft.cpp:52:19) in function 'reverse_bits' has been removed because the loop is unrolled completely (fft.cpp:49:0)
+INFO: [HLS 214-178] Inlining function 'reverse_bits(unsigned int)' into 'bit_reverse(float*, float*, float*, float*)' (fft.cpp:80:0)
+INFO: [HLS 214-186] Unrolling loop 'DFTpts' (fft.cpp:140:3) in function 'fft_stage_first' completely with a factor of 512 (fft.cpp:103:0)
+WARNING: [HLS 214-189] Pipeline directive for loop 'DFTpts' (fft.cpp:140:3) in function 'fft_stage_first' has been removed because the loop is unrolled completely (fft.cpp:103:0)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage1_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage1_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage2_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage2_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage3_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage3_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage4_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage4_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage5_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage5_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage6_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage6_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage7_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage7_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage8_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage8_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage9_I' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=cyclic factor=3 dim=1' for array 'Stage9_R' due to pipeline pragma (fft.cpp:190:9)
+INFO: [HLS 214-248] Applying array_partition to 'Stage1_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:26:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage1_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:26:24)
+INFO: [HLS 214-248] Applying array_partition to 'Stage2_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:27:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage2_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:27:24)
+INFO: [HLS 214-248] Applying array_partition to 'Stage3_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:28:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage3_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:28:24)
+INFO: [HLS 214-248] Applying array_partition to 'Stage4_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:29:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage4_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:29:24)
+INFO: [HLS 214-248] Applying array_partition to 'Stage5_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:30:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage5_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:30:24)
+INFO: [HLS 214-248] Applying array_partition to 'Stage6_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:31:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage6_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:31:24)
+INFO: [HLS 214-248] Applying array_partition to 'Stage7_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:32:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage7_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:32:24)
+INFO: [HLS 214-248] Applying array_partition to 'Stage8_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:33:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage8_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:33:24)
+INFO: [HLS 214-248] Applying array_partition to 'Stage9_R': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:34:8)
+INFO: [HLS 214-248] Applying array_partition to 'Stage9_I': Cyclic partitioning with factor 3 on dimension 1. (fft.cpp:34:24)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 11.504 seconds; current allocated memory: 93.188 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.002 seconds; current allocated memory: 93.215 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 1.389 seconds; current allocated memory: 109.363 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.496 seconds; current allocated memory: 121.781 MB.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'butterfly' (fft.cpp:171) in function 'fft_stages.7' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'butterfly' (fft.cpp:171) in function 'fft_stages.6' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'butterfly' (fft.cpp:171) in function 'fft_stages.5' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'butterfly' (fft.cpp:171) in function 'fft_stages.4' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'butterfly' (fft.cpp:171) in function 'fft_stages.3' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'butterfly' (fft.cpp:171) in function 'fft_stages.2' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'butterfly' (fft.cpp:171) in function 'fft_stages.1' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'butterfly' (fft.cpp:171) in function 'fft_stages' for pipelining.
+WARNING: [XFORM 203-561] Updating loop lower bound from 2 to 256 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.7'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 256 to 128 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.6'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 2 to 128 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.6'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 256 to 64 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.5'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 2 to 64 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.5'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 256 to 32 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.4'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 2 to 32 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.4'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 256 to 16 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.3'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 2 to 16 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.3'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 256 to 8 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.2'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 2 to 8 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.2'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 256 to 4 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.1'.
+WARNING: [XFORM 203-561] Updating loop lower bound from 2 to 4 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages.1'.
+WARNING: [XFORM 203-561] Updating loop upper bound from 256 to 2 for loop 'butterfly' (fft.cpp:191:9) in function 'fft_stages'.
+WARNING: [HLS 200-932] Cannot unroll loop 'DFTpts' (fft.cpp:202) in function 'fft_stages.7' completely: variable loop bound.
+WARNING: [HLS 200-932] Cannot unroll loop 'DFTpts' (fft.cpp:202) in function 'fft_stages.6' completely: variable loop bound.
+WARNING: [HLS 200-932] Cannot unroll loop 'DFTpts' (fft.cpp:202) in function 'fft_stages.5' completely: variable loop bound.
+WARNING: [HLS 200-932] Cannot unroll loop 'DFTpts' (fft.cpp:202) in function 'fft_stages.4' completely: variable loop bound.
+WARNING: [HLS 200-932] Cannot unroll loop 'DFTpts' (fft.cpp:202) in function 'fft_stages.3' completely: variable loop bound.
+WARNING: [HLS 200-932] Cannot unroll loop 'DFTpts' (fft.cpp:202) in function 'fft_stages.2' completely: variable loop bound.
+WARNING: [HLS 200-932] Cannot unroll loop 'DFTpts' (fft.cpp:202) in function 'fft_stages.1' completely: variable loop bound.
+WARNING: [HLS 200-932] Cannot unroll loop 'DFTpts' (fft.cpp:202) in function 'fft_stages' completely: variable loop bound.
+INFO: [XFORM 203-712] Applying dataflow to function 'fft' (fft.cpp:19:1), detected/extracted 11 process function(s): 
+	 'bit_reverse'
+	 'fft_stage_first'
+	 'fft_stages'
+	 'fft_stages.1'
+	 'fft_stages.2'
+	 'fft_stages.3'
+	 'fft_stages.4'
+	 'fft_stages.5'
+	 'fft_stages.6'
+	 'fft_stages.7'
+	 'fft_stage_last'.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 7 seconds. CPU system time: 0 seconds. Elapsed time: 6.814 seconds; current allocated memory: 151.980 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'butterfly' (fft.cpp:171:6) in function 'fft_stages.7' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'butterfly' (fft.cpp:171:6) in function 'fft_stages.6' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'butterfly' (fft.cpp:171:6) in function 'fft_stages.5' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'butterfly' (fft.cpp:171:6) in function 'fft_stages.4' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'butterfly' (fft.cpp:171:6) in function 'fft_stages.3' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'butterfly' (fft.cpp:171:6) in function 'fft_stages.2' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'butterfly' (fft.cpp:171:6) in function 'fft_stages.1' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+WARNING: [HLS 200-960] Cannot flatten loop 'butterfly' (fft.cpp:171:6) in function 'fft_stages' the outer loop is not a perfect loop.
+Resolution: For help on HLS 200-960 see www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_1' (fft.cpp:210:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_1' (fft.cpp:211:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:212:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:213:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_2' (fft.cpp:210:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_2' (fft.cpp:211:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:212:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:213:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_1' (fft.cpp:210:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_1' (fft.cpp:211:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:212:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:213:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_2' (fft.cpp:210:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_2' (fft.cpp:211:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:212:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:213:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_1' (fft.cpp:210:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_1' (fft.cpp:211:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:212:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:213:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_2' (fft.cpp:210:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_2' (fft.cpp:211:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:212:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:213:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_1' (fft.cpp:210:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_1' (fft.cpp:211:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:212:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:213:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_2' (fft.cpp:210:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_2' (fft.cpp:211:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:212:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:213:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_1' (fft.cpp:147:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_1' (fft.cpp:148:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_R_0' (fft.cpp:149:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'OUT_I_0' (fft.cpp:150:13)
+INFO: [HLS 200-472] Inferring partial write operation for 'Y_R' (fft.cpp:93:11)
+INFO: [HLS 200-472] Inferring partial write operation for 'Y_R' (fft.cpp:94:18)
+INFO: [HLS 200-472] Inferring partial write operation for 'Y_I' (fft.cpp:96:11)
+INFO: [HLS 200-472] Inferring partial write operation for 'Y_I' (fft.cpp:97:18)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 9 seconds. CPU system time: 0 seconds. Elapsed time: 9.097 seconds; current allocated memory: 353.188 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'fft' ...
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.1_Pipeline_DFTpts' to 'fft_stages_1_Pipeline_DFTpts'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.1' to 'fft_stages_1'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.2_Pipeline_DFTpts' to 'fft_stages_2_Pipeline_DFTpts'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.2' to 'fft_stages_2'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.3_Pipeline_DFTpts' to 'fft_stages_3_Pipeline_DFTpts'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.3' to 'fft_stages_3'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.4_Pipeline_DFTpts' to 'fft_stages_4_Pipeline_DFTpts'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.4' to 'fft_stages_4'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.5_Pipeline_DFTpts' to 'fft_stages_5_Pipeline_DFTpts'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.5' to 'fft_stages_5'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.6_Pipeline_DFTpts' to 'fft_stages_6_Pipeline_DFTpts'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.6' to 'fft_stages_6'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.7_Pipeline_DFTpts' to 'fft_stages_7_Pipeline_DFTpts'.
+WARNING: [SYN 201-103] Legalizing function name 'fft_stages.7' to 'fft_stages_7'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'bit_reverse' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'traverse_all_bits'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 3, loop 'traverse_all_bits'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 5 seconds. CPU system time: 0 seconds. Elapsed time: 5.604 seconds; current allocated memory: 361.055 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.065 seconds; current allocated memory: 362.254 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stage_first' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 27 seconds. CPU system time: 0 seconds. Elapsed time: 27.466 seconds; current allocated memory: 474.648 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] After resource sharing, estimated clock period (10.4181ns) exceeds the target (target clock period: 10ns, clock uncertainty: 2.7ns, effective delay budget: 7.3ns).
+INFO: [BIND 205-100] The critical path consists of the following:
+	'fsub' operation ('temp_R', fft.cpp:144) (10.4 ns)
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 36 seconds. CPU system time: 0 seconds. Elapsed time: 35.795 seconds; current allocated memory: 482.934 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'fft_stages_Pipeline_DFTpts': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'DFTpts'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 85, loop 'DFTpts'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 22 seconds. CPU system time: 1 seconds. Elapsed time: 22.685 seconds; current allocated memory: 490.504 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.471 seconds; current allocated memory: 490.582 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'butterfly': contains subfunction 'fft_stages_Pipeline_DFTpts' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.272 seconds; current allocated memory: 490.605 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.097 seconds; current allocated memory: 490.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_1_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'fft_stages.1_Pipeline_DFTpts': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'DFTpts'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 85, loop 'DFTpts'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.379 seconds; current allocated memory: 490.703 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.471 seconds; current allocated memory: 490.715 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'butterfly': contains subfunction 'fft_stages.1_Pipeline_DFTpts' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.267 seconds; current allocated memory: 490.754 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 490.758 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_2_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'fft_stages.2_Pipeline_DFTpts': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'DFTpts'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 85, loop 'DFTpts'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.358 seconds; current allocated memory: 491.207 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.515 seconds; current allocated memory: 491.219 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'butterfly': contains subfunction 'fft_stages.2_Pipeline_DFTpts' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.293 seconds; current allocated memory: 491.281 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.106 seconds; current allocated memory: 491.281 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_3_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'fft_stages.3_Pipeline_DFTpts': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'DFTpts'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 85, loop 'DFTpts'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.501 seconds; current allocated memory: 491.551 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.557 seconds; current allocated memory: 491.836 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'butterfly': contains subfunction 'fft_stages.3_Pipeline_DFTpts' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.28 seconds; current allocated memory: 491.852 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.113 seconds; current allocated memory: 492.105 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_4_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'fft_stages.4_Pipeline_DFTpts': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'DFTpts'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 85, loop 'DFTpts'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.341 seconds; current allocated memory: 492.270 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.488 seconds; current allocated memory: 492.758 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'butterfly': contains subfunction 'fft_stages.4_Pipeline_DFTpts' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.378 seconds; current allocated memory: 492.777 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 492.902 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_5_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'fft_stages.5_Pipeline_DFTpts': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'DFTpts'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 85, loop 'DFTpts'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.401 seconds; current allocated memory: 493.453 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.539 seconds; current allocated memory: 493.699 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'butterfly': contains subfunction 'fft_stages.5_Pipeline_DFTpts' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.283 seconds; current allocated memory: 494.207 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.124 seconds; current allocated memory: 494.316 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_6_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'fft_stages.6_Pipeline_DFTpts': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'DFTpts'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 85, loop 'DFTpts'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.379 seconds; current allocated memory: 495.344 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.526 seconds; current allocated memory: 495.363 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'butterfly': contains subfunction 'fft_stages.6_Pipeline_DFTpts' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.312 seconds; current allocated memory: 495.484 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.127 seconds; current allocated memory: 495.484 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_7_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'fft_stages.7_Pipeline_DFTpts': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'DFTpts'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 85, loop 'DFTpts'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.346 seconds; current allocated memory: 496.391 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.516 seconds; current allocated memory: 496.582 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stages_7' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-67] Unable to satisfy pipeline directive for loop 'butterfly': contains subfunction 'fft_stages.7_Pipeline_DFTpts' which is not pipelined.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.28 seconds; current allocated memory: 497.004 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 497.008 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft_stage_last' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln265) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'butterfly'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 20, loop 'butterfly'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.281 seconds; current allocated memory: 497.844 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.258 seconds; current allocated memory: 498.086 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'fft' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.252 seconds; current allocated memory: 498.738 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.474 seconds; current allocated memory: 499.105 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'bit_reverse' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'bit_reverse' pipeline 'traverse_all_bits' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'bit_reverse'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.928 seconds; current allocated memory: 500.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stage_first' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 12 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 6 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stage_first'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 12 seconds. CPU system time: 0 seconds. Elapsed time: 12.361 seconds; current allocated memory: 592.941 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stages_Pipeline_DFTpts' pipeline 'DFTpts' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_66ns_129_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_64ns_3ns_2_68_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_Pipeline_DFTpts'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 34 seconds. CPU system time: 9 seconds. Elapsed time: 43.496 seconds; current allocated memory: 797.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages'.
+INFO: [RTMG 210-279] Implementing memory 'fft_fft_stages_W_real11_ROM_AUTO_1R' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'fft_fft_stages_W_imag3_ROM_AUTO_1R' using auto ROMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.692 seconds; current allocated memory: 797.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_1_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stages_1_Pipeline_DFTpts' pipeline 'DFTpts' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_66ns_129_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_64ns_3ns_2_68_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_1_Pipeline_DFTpts'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.942 seconds; current allocated memory: 797.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.636 seconds; current allocated memory: 797.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_2_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stages_2_Pipeline_DFTpts' pipeline 'DFTpts' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_66ns_129_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_64ns_3ns_2_68_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_2_Pipeline_DFTpts'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.937 seconds; current allocated memory: 797.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 1 seconds. Elapsed time: 0.699 seconds; current allocated memory: 797.617 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_3_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stages_3_Pipeline_DFTpts' pipeline 'DFTpts' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_66ns_129_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_64ns_3ns_2_68_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_3_Pipeline_DFTpts'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.9 seconds; current allocated memory: 799.141 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_3' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_3'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.653 seconds; current allocated memory: 801.410 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_4_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stages_4_Pipeline_DFTpts' pipeline 'DFTpts' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_66ns_129_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_64ns_3ns_2_68_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_4_Pipeline_DFTpts'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.942 seconds; current allocated memory: 803.215 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_4' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_4'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.647 seconds; current allocated memory: 806.004 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_5_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stages_5_Pipeline_DFTpts' pipeline 'DFTpts' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_66ns_129_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_64ns_3ns_2_68_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_5_Pipeline_DFTpts'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.964 seconds; current allocated memory: 806.980 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_5' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_5'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.672 seconds; current allocated memory: 808.422 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_6_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stages_6_Pipeline_DFTpts' pipeline 'DFTpts' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_66ns_129_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_64ns_3ns_2_68_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_6_Pipeline_DFTpts'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.95 seconds; current allocated memory: 810.922 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_6' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_6'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.643 seconds; current allocated memory: 813.234 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_7_Pipeline_DFTpts' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stages_7_Pipeline_DFTpts' pipeline 'DFTpts' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'faddfsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_64ns_66ns_129_5_1': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'urem_64ns_3ns_2_68_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_7_Pipeline_DFTpts'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.952 seconds; current allocated memory: 817.227 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stages_7' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stages_7'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.651 seconds; current allocated memory: 820.402 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft_stage_last' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'fft_stage_last' pipeline 'butterfly' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fsub_32ns_32ns_32_5_full_dsp_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_mul_10ns_11ns_21_4_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_32_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft_stage_last'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1 seconds. CPU system time: 0 seconds. Elapsed time: 0.413 seconds; current allocated memory: 822.504 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'fft' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'fft/X_R' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fft/X_I' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fft/OUT_R' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'fft/OUT_I' to 'ap_memory'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'fft' to 'ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'fft'.
+INFO: [HLS 200-740] Implementing PIPO fft_Y_R_RAM_AUTO_1R1W using a separate memory for each block
+INFO: [RTMG 210-278] Implementing memory 'fft_Y_R_RAM_AUTO_1R1W_memcore' using auto RAMs.
+INFO: [HLS 200-740] Implementing PIPO fft_Stage1_R_RAM_AUTO_1R1W using a separate memory for each block
+INFO: [RTMG 210-278] Implementing memory 'fft_Stage1_R_RAM_AUTO_1R1W_memcore' using auto RAMs.
+INFO: [HLS 200-741] Implementing PIPO fft_Stage2_R_RAM_AUTO_1R1W using a single memory for all blocks
+INFO: [RTMG 210-278] Implementing memory 'fft_Stage2_R_RAM_AUTO_1R1W_memcore' using auto RAMs.
+INFO: [HLS 200-740] Implementing PIPO fft_Stage9_R_RAM_AUTO_1R1W using a separate memory for each block
+INFO: [RTMG 210-278] Implementing memory 'fft_Stage9_R_RAM_AUTO_1R1W_memcore' using auto RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 1.078 seconds; current allocated memory: 824.445 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 4 seconds. CPU system time: 0 seconds. Elapsed time: 3.788 seconds; current allocated memory: 834.613 MB.
