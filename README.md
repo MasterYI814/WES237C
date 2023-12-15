@@ -9,3 +9,4 @@ Project 1: FIR Filter Design
 Project 2: CORDIC and Phase Detector  
 Project 3: Discrete Fourier Transform (DFT)  
 Project 4: Fast Fourier Transform (FFT) and OFDM Receiver  
+Project 5: Binary Neural Network (BNN)  
